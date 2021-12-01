@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Connectify!",
+  "description": "",
+  "version": "2.0.0",
+  "action": {
+    "default_popup": "src/pages/popup/popup.html"
+  },
+  "options_ui": {
+    "page": "src/pages/options/options.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.linkedin.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.linkedin.com/search/results/people/*",
+        "https://*.linkedin.com/mynetwork/*"
+      ],
+      "js": [
+        "src/js/content.js"
+      ]
+    }
+  ]
+}
